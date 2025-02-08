@@ -1,0 +1,209 @@
+/* Application de la police futuriste Orbitron uniquement aux titres */
+h1, h2, h3, h4, h5 {
+    font-family: 'Orbitron', sans-serif; /* Police Orbitron pour les titres */
+    color: #000000; /* Texte noir pour les titres */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte noir */
+}
+
+/* Navbar */
+.navbar-dark .navbar-nav .nav-link {
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #007bff !important;
+}
+
+/* Conteneur principal du CV */
+.cv-container {
+    background: #f8f9fa; /* Fond clair pour les sections du CV */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Bouton de téléchargement */
+.btn-download {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0, 123, 255, 0.3);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-download:hover {
+    background-color: #004085 !important;
+    box-shadow: 4px 4px 20px rgba(0, 123, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Section du CV */
+.cv-section {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.cv-section h3 {
+    color: #000000;
+    border-bottom: 2px solid #000000;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.cv-section p {
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #000000; /* Fond noir */
+    color: #ffffff; /* Texte blanc */
+    padding: 20px 0;
+    text-align: center; /* Centrer le texte dans le footer */
+    position: fixed; /* Fixer le footer en bas */
+    bottom: 0; /* Placer le footer tout en bas de la page */
+    left: 0; /* S'assurer qu'il commence à gauche */
+    width: 100%; /* Prendre toute la largeur de la page */
+    z-index: 999; /* Assurer qu'il soit au-dessus des autres éléments */
+}
+
+
+/* Header */
+header {
+    background-color: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte noir */
+    padding: 50px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* GIFs - Taille agrandie */
+.project-img, .project-img-large {
+    width: 90%; /* Agrandir la largeur à 90% pour les GIFs */
+    max-width: 100%; /* Limite la largeur maximale pour ne pas déborder */
+    height: auto;
+    object-fit: contain; /* Préserve les proportions du GIF */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet léger */
+}
+
+/* Si vous voulez que le GIF soit encore plus grand sur grands écrans, vous pouvez augmenter la taille */
+@media (min-width: 768px) {
+    .project-img, .project-img-large {
+        width: 95%; /* Agrandir encore davantage sur les écrans plus larges */
+    }
+}
+
+/* Alignement des projets dans des bulles */
+.bubble {
+    background-color: #f8f9fa; /* Fond clair pour chaque projet */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Lien GitHub */
+.github-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+}
+
+/* Bouton "Voir le reste" */
+.btn-voir-rest {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-voir-rest:hover {
+    background-color: #004085;
+}
+
+/* Projet - Définition de la section projet avec des colonnes flexibles */
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.project-container .col-md-4 {
+    flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
+    box-sizing: border-box;
+}
+
+.project-desc {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+.extra-projects {
+    display: none; /* Masquer la section des projets supplémentaires initialement */
+    margin-top: 30px;
+}
+
+.extra-projects .col-md-4 {
+    flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
+}
+
+/* Responsive design - ajustements pour petits écrans */
+@media (max-width: 767px) {
+    .project-container .col-md-4 {
+        flex: 0 0 100%; /* Les projets prennent 100% de la largeur sur petits écrans */
+    }
+
+    .btn-voir-rest {
+        width: 100%;
+        text-align: center;
+    }
+}

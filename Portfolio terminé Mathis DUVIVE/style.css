@@ -1,0 +1,123 @@
+/* Application de la police futuriste Orbitron uniquement aux titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif; /* Police Orbitron pour les titres */
+    color: #000000; /* Couleur du texte pour les titres */
+}
+
+body {
+    background-color: #ffffff; /* Fond blanc */
+    color: #000000; /* Texte noir */
+    font-family: Arial, sans-serif; /* Police classique pour le texte du corps */
+}
+
+.hero-section {
+    background-color: #ffffff; /* Fond blanc pour la section hero */
+    color: #000000; /* Texte noir */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-hero {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-hero:hover {
+    background-color: #0056b3;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre portée pour les cartes */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.icon-box {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.services-section .card-body {
+    text-align: center;
+}
+
+.footer {
+    background-color: #000000; /* Fond noir */
+    color: white; /* Texte blanc pour le contraste */
+    padding: 20px 0;
+}
+
+.footer a {
+    color: #007bff; /* Liens bleus */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Couleur plus foncée des liens au survol */
+}
+
+
+.about-img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centrer la section "À propos de moi" */
+.about-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.about-section .row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.about-section .col-md-6 {
+    max-width: 700px; /* Ajuste la largeur du texte */
+    text-align: center;
+}
+/* Liens au survol en haut de la page */
+.navbar a:hover, .footer a:hover {
+    color: #007bff; /* Bleu lors du survol */
+}
+.btn-hero {
+    text-decoration: none; /* Empêche le texte d'être souligné */
+}
