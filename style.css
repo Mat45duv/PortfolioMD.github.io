@@ -121,3 +121,117 @@ body {
 .btn-hero {
     text-decoration: none; /* Empêche le texte d'être souligné */
 }
+/* Effet de retournement pour les cartes interactives */
+.flip-card {
+    perspective: 1000px;
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.flip-card-front {
+    background: #f8f9fa;
+}
+
+.flip-card-back {
+    background: #007bff;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Animation d'ombre au survol */
+.flip-card:hover .flip-card-inner {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Style pour la section À propos de moi */
+.about-section {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.about-section a.btn {
+    margin-top: 20px;
+}
+
+/* Amélioration des boutons */
+.btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+/* Appliquer la police Orbitron à "Portfolio MD" */
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;  /* Police Orbitron pour le titre du site */
+    font-weight: bold;  /* Appliquer une graisse de police plus lourde */
+    font-size: 1.5rem;  /* Taille ajustée si nécessaire */
+}
+
+/* Appliquer Orbitron à "Portfolio MD" (navbar-brand) */
+.navbar .navbar-brand {
+    font-family: 'Orbitron', sans-serif; /* Appliquer la police Orbitron à "Portfolio MD" */
+    font-weight: 700; /* Optionnel, vous pouvez ajuster la graisse */
+    font-size: 1.5rem; /* Ajuster la taille de la police pour la rendre plus visible */
+}
+
+/* Appliquer Orbitron à tous les liens dans la navbar */
+.navbar .nav-link {
+    font-family: 'Orbitron', sans-serif; /* Appliquer la police Orbitron aux liens de la navbar */
+    font-weight: 500; /* Ajuster la graisse des liens */
+}
+
+/* Appliquer Orbitron à la barre de recherche (form-control) */
+.navbar .form-control {
+    font-family: 'Orbitron', sans-serif; /* Appliquer Orbitron à la barre de recherche */
+    font-size: 1rem; /* Ajuster la taille de la police dans la barre de recherche */
+}
+

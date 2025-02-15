@@ -7,10 +7,8 @@
     <link rel="icon" type="png" href="portfolio1.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Police futuriste Orbitron -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
@@ -29,7 +27,6 @@
                     <li class="nav-item"><a class="nav-link" href="projets.html">Projets</a></li>
                     <li class="nav-item"><a class="nav-link" href="veille.html">Veille</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                   
                 </ul>
             </div>
         </div>
@@ -39,26 +36,81 @@
     <section class="hero-section">
         <div>
             <h1>Bienvenue sur le Portfolio de Mathis DUVIVÉ</h1>
-            <p>Je m'appelle Mathis DUVIVÉ, je suis un développeur passionné par la technologie et la création de solutions innovantes qui étudie actuellement dans l'établissement <a href="https://www.stpaulbb.org/" target="_blank">Bourdon Blanc</a>.</p>
-
-            <a href="projets.html" class="btn-hero">Voir mes projets</a>
+            <p>Je suis un développeur passionné par la technologie et la création de solutions innovantes, étudiant actuellement en <strong>BTS SIO option SLAM</strong> à <a href="https://www.stpaulbb.org/" target="_blank">Bourdon Blanc</a>.</p>
+            <a href="projets.html" class="btn btn-primary">Voir mes projets</a>
         </div>
     </section>
 
     <!-- À propos de moi -->
-    <section class="container my-5">
+    <section class="container my-5 about-section">
         <div class="row justify-content-center">
-            <div class="col-md-8 text-center">
+            <div class="col-md-6">
                 <h2 class="section-title">À propos de moi</h2>
-                <p>Je suis un développeur passionné avec une expertise en création de sites web dynamiques et d'applications web. Mon objectif est de créer des expériences utilisateur fluides et engageantes. J'aime relever des défis techniques tout en cherchant constamment à apprendre et à évoluer dans ce domaine.</p>
-                <a href="cv.html" class="btn btn-primary">Mon CV</a>
+                <p>Je suis passionné par le développement web et les nouvelles technologies. Mon objectif est de concevoir des solutions innovantes et performantes pour répondre aux besoins des entreprises.</p>
+                <a href="cv.html" class="btn btn-primary">Voir mon CV</a>
             </div>
         </div>
     </section>
-    
-    <!-- Services -->
+
+    <!-- BTS SIO Section -->
     <section class="container my-5">
-        <h2 class="section-title">Mes Compétences</h2>
+        <h2 class="section-title text-center">Le BTS SIO et ses options</h2>
+        <p class="text-center">Le <strong>BTS Services Informatiques aux Organisations (SIO)</strong> est une formation en informatique qui se décline en deux spécialités, adaptées aux besoins actuels du secteur :</p>
+        <div class="row">
+            <!-- SLAM -->
+            <div class="col-md-6">
+                <div class="flip-card" onclick="toggleFlip(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Option SLAM</h3>
+                                <p class="card-text text-center">Solutions Logicielles et Applications Métier</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back card">
+                            <div class="card-body">
+                                <p class="card-text">Cette option est orientée vers le développement logiciel, la gestion de bases de données, et la conception d'applications métiers sur mesure. En tant que développeur, vous serez formé à la création d'applications, ainsi qu'à l'intégration des solutions logicielles adaptées aux besoins des entreprises.</p>
+                                <p class="card-text">Les compétences acquises incluent :</p>
+                                <ul>
+                                    <li>Création de sites web et d'applications responsives</li>
+                                    <li>Gestion de bases de données (SQL, MongoDB)</li>
+                                    <li>Développement d'applications mobiles et desktop</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SISR -->
+            <div class="col-md-6">
+                <div class="flip-card" onclick="toggleFlip(this)">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front card">
+                            <div class="card-body">
+                                <h3 class="card-title text-center">Option SISR</h3>
+                                <p class="card-text text-center">Solutions d'Infrastructure, Systèmes et Réseaux</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back card">
+                            <div class="card-body">
+                                <p class="card-text">L'option SISR est dédiée à la gestion des infrastructures informatiques, des réseaux et des systèmes. Vous serez formé à l'administration des serveurs, à la gestion des réseaux et à la sécurité des systèmes informatiques dans un environnement professionnel.</p>
+                                <p class="card-text">Les compétences acquises incluent :</p>
+                                <ul>
+                                    <li>Installation et administration de serveurs et réseaux</li>
+                                    <li>Virtualisation et gestion des systèmes informatiques</li>
+                                    <li>Assurance de la sécurité des systèmes d'information</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences en option SLAM -->
+    <section class="container my-5">
+        <h2 class="section-title">Mes Compétences en option SLAM</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -103,5 +155,10 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleFlip(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
 </body>
 </html>

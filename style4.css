@@ -143,3 +143,28 @@ body {
 main {
     flex-grow: 1; /* Permet au contenu principal de prendre toute la place disponible */
 }
+/* Appliquer la police Orbitron à "Portfolio MD" */
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;  /* Police Orbitron pour le titre du site */
+    font-weight: bold;  /* Appliquer une graisse de police plus lourde */
+    font-size: 1.5rem;  /* Taille ajustée si nécessaire */
+}
+
+/* Appliquer Orbitron à "Portfolio MD" (navbar-brand) */
+.navbar .navbar-brand {
+    font-family: 'Orbitron', sans-serif; /* Appliquer la police Orbitron à "Portfolio MD" */
+    font-weight: 700; /* Optionnel, vous pouvez ajuster la graisse */
+    font-size: 1.5rem; /* Ajuster la taille de la police pour la rendre plus visible */
+}
+
+/* Appliquer Orbitron à tous les liens dans la navbar */
+.navbar .nav-link {
+    font-family: 'Orbitron', sans-serif; /* Appliquer la police Orbitron aux liens de la navbar */
+    font-weight: 500; /* Ajuster la graisse des liens */
+}
+
+/* Appliquer Orbitron à la barre de recherche (form-control) */
+.navbar .form-control {
+    font-family: 'Orbitron', sans-serif; /* Appliquer Orbitron à la barre de recherche */
+    font-size: 1rem; /* Ajuster la taille de la police dans la barre de recherche */
+}
