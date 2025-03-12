@@ -39,8 +39,8 @@ body {
 
 /* Exemple de bouton personnalisé (btn-download) */
 .btn-download {
-    font-size: 1.2rem;
-    padding: 15px 30px; /* Si tu veux ajuster le padding à ta convenance */
+    font-size: 1rem; /* Réduire la taille de la police à 1rem */
+    padding: 15px 30px; /* Ajuster le padding si nécessaire */
     transition: all 0.3s ease-in-out;
     box-shadow: 2px 2px 10px rgba(0, 123, 255, 0.3);
     background-color: #007bff;
@@ -50,6 +50,7 @@ body {
     display: inline-block;
     margin-top: 10px;
 }
+
 
 
 
