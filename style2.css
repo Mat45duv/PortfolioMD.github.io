@@ -28,43 +28,27 @@ body {
     text-align: center;
 }
 
-/* Style générique pour tous les boutons */
+/* Appliquer la même taille pour tous les boutons */
 .btn, .btn-download {
-    width: 250px; /* Largeur plus grande pour les boutons */
-    height: 60px; /* Hauteur augmentée pour un bouton plus gros */
-    font-size: 1.5rem; /* Taille de la police plus grande */
-    padding: 15px 30px; /* Padding plus grand pour un bouton spacieux */
-    border-radius: 8px; /* Coins arrondis plus prononcés */
-    display: inline-block;
-    text-align: center;
-    margin-top: 15px; /* Espacement plus important */
-    box-shadow: 3px 3px 15px rgba(0, 123, 255, 0.3); /* Ombre douce pour un effet esthétique */
-    transition: all 0.3s ease; /* Transition fluide lors du survol */
+    width: 200px; /* Largeur fixe pour les boutons */
+    height: 50px; /* Hauteur fixe pour les boutons */
+    display: inline-block; /* Permet aux boutons d'être sur la même ligne */
+    line-height: 50px; /* Aligner le texte au centre verticalement */
+    text-align: center; /* Aligner le texte au centre horizontalement */
 }
 
-/* Effet au survol des boutons */
-.btn-download:hover {
-    background-color: #004085 !important; /* Changer la couleur de fond au survol */
-    box-shadow: 5px 5px 30px rgba(0, 123, 255, 0.5); /* Ombre plus marquée au survol */
-    transform: scale(1.1); /* Augmenter légèrement la taille du bouton au survol */
-}
-
-/* Option pour d'autres boutons si nécessaires */
-.btn {
-    background-color: #007bff; /* Couleur de fond par défaut pour les autres boutons */
-    color: white; /* Texte en blanc */
-    border: none; /* Pas de bordure */
-}
-
-.btn:hover {
-    background-color: #0056b3; /* Couleur de fond changée lors du survol */
-}
-
-/* Exemple de style supplémentaire pour un bouton spécifique */
+/* Exemple de bouton personnalisé (btn-download) */
 .btn-download {
-    background-color: #007bff; /* Fond bleu pour le bouton de téléchargement */
-    color: white; /* Texte blanc */
-    border: none; /* Aucune bordure */
+    font-size: 1.2rem;
+    padding: 15px 30px; /* Si tu veux ajuster le padding à ta convenance */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0, 123, 255, 0.3);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 
