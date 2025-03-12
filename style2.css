@@ -28,28 +28,26 @@ body {
     text-align: center;
 }
 
-/* Appliquer la même taille pour tous les boutons */
+/* Style générique pour tous les boutons */
 .btn, .btn-download {
-    width: 200px; /* Largeur fixe pour les boutons */
-    height: 50px; /* Hauteur fixe pour les boutons */
-    display: inline-block; /* Permet aux boutons d'être sur la même ligne */
-    line-height: 50px; /* Aligner le texte au centre verticalement */
-    text-align: center; /* Aligner le texte au centre horizontalement */
+    width: 200px; /* Largeur fixe */
+    height: 50px; /* Hauteur fixe */
+    font-size: 1.2rem; /* Taille de la police */
+    padding: 10px 20px; /* Padding uniforme */
+    border-radius: 5px; /* Coins arrondis */
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 123, 255, 0.3);
 }
 
-/* Exemple de bouton personnalisé (btn-download) */
-.btn-download {
-    font-size: 1.2rem;
-    padding: 15px 30px; /* Si tu veux ajuster le padding à ta convenance */
-    transition: all 0.3s ease-in-out;
-    box-shadow: 2px 2px 10px rgba(0, 123, 255, 0.3);
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
+/* Effet au survol des boutons */
+.btn-download:hover {
+    background-color: #004085 !important;
+    box-shadow: 4px 4px 20px rgba(0, 123, 255, 0.5);
+    transform: scale(1.05);
 }
+
 
 
 /* Section du CV */
