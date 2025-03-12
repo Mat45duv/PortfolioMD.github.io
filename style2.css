@@ -30,22 +30,22 @@ body {
 
 /* Style générique pour tous les boutons */
 .btn, .btn-download {
-    width: 200px; /* Largeur fixe */
-    height: 50px; /* Hauteur fixe */
-    font-size: 1.2rem; /* Taille de la police */
-    padding: 10px 20px; /* Padding uniforme */
-    border-radius: 5px; /* Coins arrondis */
+    width: 250px; /* Largeur plus grande */
+    height: 60px; /* Hauteur plus grande */
+    font-size: 1.5rem; /* Augmenter la taille de la police pour les rendre plus visibles */
+    padding: 15px 30px; /* Ajouter un padding plus large */
+    border-radius: 8px; /* Coins plus arrondis */
     display: inline-block;
     text-align: center;
-    margin-top: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 123, 255, 0.3);
+    margin-top: 15px; /* Espacement supérieur plus grand */
+    box-shadow: 3px 3px 15px rgba(0, 123, 255, 0.3); /* Ombre plus grande */
 }
 
 /* Effet au survol des boutons */
 .btn-download:hover {
     background-color: #004085 !important;
-    box-shadow: 4px 4px 20px rgba(0, 123, 255, 0.5);
-    transform: scale(1.05);
+    box-shadow: 5px 5px 30px rgba(0, 123, 255, 0.5); /* Ombre plus marquée au survol */
+    transform: scale(1.1); /* Légère augmentation de la taille au survol */
 }
 
 
