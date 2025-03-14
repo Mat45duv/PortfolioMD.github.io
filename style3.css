@@ -163,7 +163,7 @@ header p {
 }
 
 .project-container .col-md-4 {
-    flex: 0 0 75%; /* Chaque projet prend 100% de la largeur */
+    flex: 0 0 55%; /* Chaque projet prend 100% de la largeur */
     box-sizing: border-box;
 }
 
