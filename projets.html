@@ -144,6 +144,24 @@
                  </div>
                  </div>
     <button id="scrollToTopBtn" class="scroll-to-top">&#8679;</button>
+    <script>
+    // Sélectionne le bouton
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // Affiche le bouton après avoir scrollé de 100px
+    window.onscroll = function () {
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    };
+
+    // Fonction pour remonter en haut de la page en douceur
+    scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+</script>
 
 
 
