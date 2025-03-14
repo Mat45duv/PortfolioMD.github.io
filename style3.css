@@ -1,16 +1,17 @@
-/* Application de la police futuriste Orbitron uniquement aux titres */
+/* ----------------------------- Application de la police futuriste Orbitron uniquement aux titres ----------------------------- */
 h1, h2, h3, h4, h5 {
     font-family: 'Orbitron', sans-serif; /* Police Orbitron pour les titres */
     color: #000000; /* Texte noir pour les titres */
 }
 
+/* ----------------------------- Style général du body ----------------------------- */
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff; /* Fond blanc */
     color: #000000; /* Texte noir */
 }
 
-/* Navbar */
+/* ----------------------------- Navbar ----------------------------- */
 .navbar-dark .navbar-nav .nav-link {
     transition: color 0.3s ease-in-out;
 }
@@ -19,7 +20,7 @@ body {
     color: #007bff !important;
 }
 
-/* Conteneur principal du CV */
+/* ----------------------------- Conteneur principal du CV ----------------------------- */
 .cv-container {
     background: #f8f9fa; /* Fond clair pour les sections du CV */
     border-radius: 10px;
@@ -30,7 +31,7 @@ body {
     text-align: center;
 }
 
-/* Bouton de téléchargement */
+/* ----------------------------- Bouton de téléchargement ----------------------------- */
 .btn-download {
     font-size: 1.2rem;
     padding: 15px 30px;
@@ -50,25 +51,31 @@ body {
     transform: scale(1.05);
 }
 
-/* Section du CV */
+/* ----------------------------- Section du CV ----------------------------- */
 .cv-section {
     text-align: left;
     margin-top: 20px;
 }
 
+/* Ajouter des "cases" pour chaque section du CV */
 .cv-section h3 {
     color: #000000;
     border-bottom: 2px solid #000000;
     display: inline-block;
     padding-bottom: 5px;
     margin-bottom: 15px;
+    border: 2px solid #ddd; /* Bordure autour de la section */
+    padding: 10px; /* Espace interne pour la section */
+    background-color: #f9f9f9; /* Fond clair */
+    border-radius: 8px; /* Coins arrondis */
 }
 
+/* Espacement entre les paragraphes dans les sections */
 .cv-section p {
     margin-bottom: 10px;
 }
 
-/* Footer */
+/* ----------------------------- Footer ----------------------------- */
 footer {
     background-color: #000000; /* Fond noir */
     color: #ffffff; /* Texte blanc */
@@ -81,8 +88,7 @@ footer {
     z-index: 999; /* Assurer qu'il soit au-dessus des autres éléments */
 }
 
-
-/* Header */
+/* ----------------------------- Header ----------------------------- */
 header {
     background-color: #ffffff; /* Fond blanc */
     color: #000000; /* Texte noir */
@@ -98,38 +104,67 @@ header p {
     font-size: 1.2rem;
 }
 
+/* ----------------------------- Container pour les projets ----------------------------- */
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+/* ----------------------------- Chaque projet dans une case ----------------------------- */
 .project-container .col-md-4 {
     flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column; /* Permet de contrôler la disposition verticale des éléments à l'intérieur */
-    justify-content: space-between; /* Aligne les éléments pour remplir l'espace disponible */
-    min-height: 350px; /* Vous pouvez ajuster cette valeur pour que tous les projets aient la même hauteur */
+    border: 2px solid #ddd; /* Ajouter une bordure autour de chaque projet */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 15px; /* Espacement interne pour éviter que le contenu touche la bordure */
+    background-color: #f9f9f9; /* Fond clair pour chaque projet */
+    transition: box-shadow 0.3s ease-in-out; /* Transition pour l'effet de survol */
 }
 
-.project-container .bubble {
-    flex-grow: 1; /* Permet à chaque bulle de projet de prendre l'espace restant pour remplir la colonne */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Répartir l'espace verticalement pour les éléments à l'intérieur de chaque projet */
+/* Effet de survol : Ajouter une ombre autour de la case du projet */
+.project-container .col-md-4:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Ombre portée lorsqu'on survole le projet */
 }
 
+/* Section de description du projet dans la case */
+.project-desc {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Image du projet, ajustée à la taille de la case */
 .project-img {
     max-height: 200px; /* Limiter la hauteur des images pour qu'elles ne prennent pas trop de place */
+    width: 100%; /* Prendre toute la largeur de la case */
     object-fit: cover; /* S'assurer que l'image garde ses proportions et ne déforme pas */
+    border-radius: 8px; /* Coins arrondis pour les images */
 }
 
-
-/* Si vous voulez que le GIF soit encore plus grand sur grands écrans, vous pouvez augmenter la taille */
-@media (min-width: 768px) {
-    .project-img, .project-img-large {
-        width: 95%; /* Agrandir encore davantage sur les écrans plus larges */
-    }
+/* ----------------------------- Section des projets supplémentaires ----------------------------- */
+.extra-projects {
+    display: none; /* Masquer la section des projets supplémentaires initialement */
+    margin-top: 30px;
 }
 
+.extra-projects .col-md-4 {
+    flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
+    box-sizing: border-box;
+    border: 2px solid #ddd; /* Ajouter une bordure autour de chaque projet supplémentaire */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 15px; /* Espacement interne pour éviter que le contenu touche la bordure */
+    background-color: #f9f9f9; /* Fond clair pour chaque projet */
+    transition: box-shadow 0.3s ease-in-out; /* Transition pour l'effet de survol */
+}
 
+/* Effet de survol des projets supplémentaires */
+.extra-projects .col-md-4:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Ombre portée lorsqu'on survole le projet */
+}
 
-/* Lien GitHub */
+/* ----------------------------- Lien GitHub ----------------------------- */
 .github-link {
     display: inline-block;
     margin-top: 15px;
@@ -142,7 +177,7 @@ header p {
     text-decoration: underline;
 }
 
-/* Bouton "Voir le reste" */
+/* ----------------------------- Bouton "Voir le reste" ----------------------------- */
 .btn-voir-rest {
     background-color: #007bff;
     color: white;
@@ -159,47 +194,7 @@ header p {
     background-color: #004085;
 }
 
-/* Projet - Définition de la section projet avec des colonnes flexibles */
-.project-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 30px;
-}
-
-.project-container .col-md-4 {
-    flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
-    box-sizing: border-box;
-}
-
-.project-desc {
-    font-size: 1rem;
-    color: #333;
-    margin-top: 10px;
-}
-
-.download-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: #007bff;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.download-link:hover {
-    text-decoration: underline;
-}
-
-.extra-projects {
-    display: none; /* Masquer la section des projets supplémentaires initialement */
-    margin-top: 30px;
-}
-
-.extra-projects .col-md-4 {
-    flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
-}
-
-/* Responsive design - ajustements pour petits écrans */
+/* ----------------------------- Responsive design - ajustements pour petits écrans ----------------------------- */
 @media (max-width: 767px) {
     .project-container .col-md-4 {
         flex: 0 0 100%; /* Les projets prennent 100% de la largeur sur petits écrans */
@@ -210,27 +205,28 @@ header p {
         text-align: center;
     }
 }
-/* Appliquer la police Orbitron à "Portfolio MD" */
+
+/* ----------------------------- Appliquer la police Orbitron à "Portfolio MD" ----------------------------- */
 .navbar-brand {
     font-family: 'Orbitron', sans-serif;  /* Police Orbitron pour le titre du site */
     font-weight: bold;  /* Appliquer une graisse de police plus lourde */
     font-size: 1.5rem;  /* Taille ajustée si nécessaire */
 }
 
-/* Appliquer Orbitron à "Portfolio MD" (navbar-brand) */
+/* ----------------------------- Appliquer Orbitron à "Portfolio MD" (navbar-brand) ----------------------------- */
 .navbar .navbar-brand {
     font-family: 'Orbitron', sans-serif; /* Appliquer la police Orbitron à "Portfolio MD" */
     font-weight: 700; /* Optionnel, vous pouvez ajuster la graisse */
     font-size: 1.5rem; /* Ajuster la taille de la police pour la rendre plus visible */
 }
 
-/* Appliquer Orbitron à tous les liens dans la navbar */
+/* ----------------------------- Appliquer Orbitron à tous les liens dans la navbar ----------------------------- */
 .navbar .nav-link {
     font-family: 'Orbitron', sans-serif; /* Appliquer la police Orbitron aux liens de la navbar */
     font-weight: 500; /* Ajuster la graisse des liens */
 }
 
-/* Appliquer Orbitron à la barre de recherche (form-control) */
+/* ----------------------------- Appliquer Orbitron à la barre de recherche (form-control) ----------------------------- */
 .navbar .form-control {
     font-family: 'Orbitron', sans-serif; /* Appliquer Orbitron à la barre de recherche */
     font-size: 1rem; /* Ajuster la taille de la police dans la barre de recherche */
