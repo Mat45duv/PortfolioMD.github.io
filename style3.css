@@ -8,6 +8,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff; /* Fond blanc */
     color: #000000; /* Texte noir */
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
