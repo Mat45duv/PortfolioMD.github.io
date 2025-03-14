@@ -98,16 +98,27 @@ header p {
     font-size: 1.2rem;
 }
 
-/* GIFs - Taille agrandie */
-.project-img, .project-img-large {
-    width: 90%; /* Agrandir la largeur à 90% pour les GIFs */
-    max-width: 100%; /* Limite la largeur maximale pour ne pas déborder */
-    height: auto;
-    object-fit: contain; /* Préserve les proportions du GIF */
-    margin-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre portée pour un effet léger */
+.project-container .col-md-4 {
+    flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Permet de contrôler la disposition verticale des éléments à l'intérieur */
+    justify-content: space-between; /* Aligne les éléments pour remplir l'espace disponible */
+    min-height: 350px; /* Vous pouvez ajuster cette valeur pour que tous les projets aient la même hauteur */
 }
+
+.project-container .bubble {
+    flex-grow: 1; /* Permet à chaque bulle de projet de prendre l'espace restant pour remplir la colonne */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Répartir l'espace verticalement pour les éléments à l'intérieur de chaque projet */
+}
+
+.project-img {
+    max-height: 200px; /* Limiter la hauteur des images pour qu'elles ne prennent pas trop de place */
+    object-fit: cover; /* S'assurer que l'image garde ses proportions et ne déforme pas */
+}
+
 
 /* Si vous voulez que le GIF soit encore plus grand sur grands écrans, vous pouvez augmenter la taille */
 @media (min-width: 768px) {
@@ -116,15 +127,7 @@ header p {
     }
 }
 
-/* Alignement des projets dans des bulles */
-.bubble {
-    background-color: #f8f9fa; /* Fond clair pour chaque projet */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 30px;
-}
+
 
 /* Lien GitHub */
 .github-link {
