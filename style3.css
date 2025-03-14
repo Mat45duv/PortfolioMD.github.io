@@ -156,16 +156,14 @@ header p {
     background-color: #004085;
 }
 
-/* Projet - Définition de la section projet avec des colonnes flexibles */
 .project-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column; /* Afficher les projets en colonne */
     gap: 30px;
 }
 
 .project-container .col-md-4 {
-    flex: 0 0 32%; /* Chaque projet prend 32% de la largeur pour avoir 3 colonnes */
+    flex: 0 0 100%; /* Chaque projet prend 100% de la largeur */
     box-sizing: border-box;
 }
 
