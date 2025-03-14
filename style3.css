@@ -233,3 +233,26 @@ header p {
     font-family: 'Orbitron', sans-serif; /* Appliquer Orbitron à la barre de recherche */
     font-size: 1rem; /* Ajuster la taille de la police dans la barre de recherche */
 }
+/* Bouton "Retour en haut" */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Caché par défaut */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.scroll-to-top:hover {
+    background-color: #004085;
+    box-shadow: 4px 4px 15px rgba(0, 123, 255, 0.5);
+    transform: scale(1.1);
+}
