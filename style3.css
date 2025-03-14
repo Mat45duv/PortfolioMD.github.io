@@ -74,7 +74,7 @@ footer {
     color: #ffffff; /* Texte blanc */
     padding: 20px 0;
     text-align: center; /* Centrer le texte dans le footer */
-    position: fixed; /* Fixer le footer en bas */
+    position: relative; /* Fixer le footer en bas */
     bottom: 0; /* Placer le footer tout en bas de la page */
     left: 0; /* S'assurer qu'il commence à gauche */
     width: 100%; /* Prendre toute la largeur de la page */
