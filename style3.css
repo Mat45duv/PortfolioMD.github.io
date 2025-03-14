@@ -8,6 +8,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #ffffff; /* Fond blanc */
     color: #000000; /* Texte noir */
+    min-height: 100vh;
 }
 
 /* Navbar */
