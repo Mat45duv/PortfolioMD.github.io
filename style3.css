@@ -69,12 +69,10 @@ body {
 }
 
 footer {
+    margin-top: 50px;
     background-color: #000000; /* Fond noir */
     color: #ffffff; /* Texte blanc */
-    text-align: center;
     padding: 20px 0;
-    width: 100%;
-    margin-top: auto; /* Pousse le footer en bas */
 }
 
 
