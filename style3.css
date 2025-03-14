@@ -160,12 +160,15 @@ header p {
     display: flex;
     flex-direction: column; /* Afficher les projets en colonne */
     gap: 30px;
+    align-items: center; /* Centrer les projets horizontalement */
 }
 
 .project-container .col-md-4 {
-    flex: 0 0 55%; /* Chaque projet prend 100% de la largeur */
+    flex: 0 0 55%; /* Chaque projet prend 55% de la largeur */
     box-sizing: border-box;
+    margin: 0 auto; /* Centrer l'élément */
 }
+
 
 .project-desc {
     font-size: 1rem;
