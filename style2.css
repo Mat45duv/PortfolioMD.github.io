@@ -105,3 +105,7 @@ header p {
     font-family: 'Orbitron', sans-serif; /* Appliquer Orbitron à la barre de recherche */
     font-size: 1rem; /* Ajuster la taille de la police dans la barre de recherche */
 }
+/* Liens au survol en haut de la page */
+.navbar a:hover, .footer a:hover {
+    color: #007bff; /* Bleu lors du survol */
+}
