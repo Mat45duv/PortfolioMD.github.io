@@ -148,8 +148,11 @@
                     if (item.enclosure && item.enclosure.link) {
                         imageUrl = item.enclosure.link;
                     } 
-                    // Recherche d'une image dans le contenu de l'article via la balise <img> dans description ou contenu
-                    else if (item.content) {
+                    // Recherche d'une image dans la balise <media:content> ou <img> dans le contenu de l'article
+                    else if (item['media:content'] && item['media:content'].url) {
+                        imageUrl = item['media:content'].url;
+                    } else if (item.content) {
+                        // Recherche d'une image dans la description ou le contenu de l'article via la balise <img> dans description
                         const contentDoc = new DOMParser().parseFromString(item.content, 'text/html');
                         const img = contentDoc.querySelector('img');
                         if (img && img.src) {
@@ -176,6 +179,7 @@
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
+
 
 
 
