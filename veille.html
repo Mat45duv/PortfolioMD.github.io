@@ -100,7 +100,7 @@
         </div>
         
 <div class="container my-5">
-    <h4>Dernières actualités sur le Machine Learning</h4>
+    <h4>Dernières actualités sur le Machine Learning et l'IA</h4>
     <div id="rss-feeds"></div>
 </div>
 
@@ -110,7 +110,7 @@
         { name: "INRIA - IA & ML (FR)", url: "https://www.inria.fr/rss.xml" },
     ];
 
-    const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle']; // Liste de mots-clés
+    const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia']; // Liste de mots-clés mise à jour
 
     async function loadRSS(feed) {
         const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
@@ -176,6 +176,7 @@
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
+
 
 
 
