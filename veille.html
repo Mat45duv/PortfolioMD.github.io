@@ -114,7 +114,39 @@
             </div>
         </div>
         <!-- Section Flux RSS avec mise à jour automatique -->
+        <!-- Section Flux RSS avec mise à jour automatique -->
+<div class="mb-5">
+    <h4>Dernières actualités sur le Machine Learning</h4>
+    <div id="rss-feed">
+        <p>Chargement des actualités...</p>
+    </div>
+</div>
 
+<script>
+    async function fetchRSS() {
+        const url = 'https://rss.sciencedaily.com/computers_math/machine_learning.xml';
+        try {
+            const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);
+            const data = await response.json();
+            
+            let htmlContent = '<ul class="list-group">';
+            data.items.slice(0, 5).forEach(item => {
+                htmlContent += `
+                    <li class="list-group-item">
+                        <a href="${item.link}" target="_blank">${item.title}</a>
+                        <p><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
+                    </li>
+                `;
+            });
+            htmlContent += '</ul>';
+            document.getElementById('rss-feed').innerHTML = htmlContent;
+        } catch (error) {
+            document.getElementById('rss-feed').innerHTML = '<p>Impossible de charger les actualités.</p>';
+        }
+    }
+    
+    fetchRSS();
+</script>
 
         <!-- Sources d'Information -->
         <div class="mb-5">
