@@ -107,7 +107,6 @@
 <script>
     const rssFeeds = [
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-       
     ];
 
     const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia']; // Liste de mots-clés mise à jour
@@ -125,7 +124,7 @@
             feedContainer.appendChild(feedSection);
 
             const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
-            data.items.slice(0, 5).forEach(item => {
+            data.items.slice(0, 6).forEach(item => { // Change ici de 5 à 6
                 const title = item.title.toLowerCase();
                 const description = item.description ? item.description.toLowerCase() : '';
 
