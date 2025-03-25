@@ -106,8 +106,8 @@
 
 <script>
     const rssFeeds = [
-        { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "INRIA - IA & ML (FR)", url: "https://www.inria.fr/rss.xml" },
+        { name: "The Verge - AI", url: "https://www.theverge.com/rss/tech/ai" },
+        { name: "MIT Technology Review - AI", url: "https://www.technologyreview.com/feed/" },
     ];
 
     const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia']; // Liste de mots-clés mise à jour
@@ -152,11 +152,6 @@
                         }
                     }
 
-                    // Cas spécial pour le flux INRIA (si aucune image n'est trouvée, ajouter une image par défaut)
-                    if (feed.name === "INRIA - IA & ML (FR)" && imageUrl === "https://via.placeholder.com/150") {
-                        imageUrl = "https://www.inria.fr/sites/default/files/styles/logo-inria/public/2020-07/inria-logo-horizontal-2020-150x50.png"; // Logo INRIA
-                    }
-
                     articleDiv.innerHTML = `
                         <div class="card">
                             <img src="${imageUrl}" class="card-img-top" alt="Image article">
@@ -176,6 +171,7 @@
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
+
 
 
 
