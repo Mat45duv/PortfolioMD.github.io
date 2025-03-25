@@ -109,7 +109,8 @@
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
     ];
 
-    const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia']; // Liste de mots-clés mise à jour
+    // Liste de mots-clés mise à jour
+    const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia'];
 
     async function loadRSS(feed) {
         const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
@@ -179,6 +180,7 @@
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
+
 
 
 
