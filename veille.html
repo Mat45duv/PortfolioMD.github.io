@@ -141,15 +141,15 @@
                     const articleDiv = document.createElement("div");
                     articleDiv.classList.add("col-md-4", "mb-3");
 
-                    // Recherche des images dans le contenu de l'article
-                    let imageUrl = "https://via.placeholder.com/150"; // Image par défaut
+                    // Si le flux est TechCrunch, ne pas inclure d'image
+                    let imageUrl = feed.name === "TechCrunch" ? "" : "https://via.placeholder.com/150";  // Image par défaut sauf pour TechCrunch
 
                     // Vérification dans le flux RSS (balise enclosure)
-                    if (item.enclosure && item.enclosure.link) {
+                    if (feed.name !== "TechCrunch" && item.enclosure && item.enclosure.link) {
                         imageUrl = item.enclosure.link;
                     }
                     // Recherche d'une image dans la description via une balise <img>
-                    else if (item.description) {
+                    else if (feed.name !== "TechCrunch" && item.description) {
                         const contentDoc = new DOMParser().parseFromString(item.description, 'text/html');
                         const img = contentDoc.querySelector('img');
                         if (img && img.src) {
@@ -157,14 +157,14 @@
                         }
                     }
 
-                    // Si aucune image trouvée, afficher un message
-                    if (imageUrl === "https://via.placeholder.com/150") {
+                    // Si aucune image trouvée et pas de TechCrunch, afficher une image par défaut
+                    if (imageUrl === "https://via.placeholder.com/150" && feed.name !== "TechCrunch") {
                         imageUrl = "https://via.placeholder.com/150?text=Pas+d'image";  // Message d'erreur sur l'absence d'image
                     }
 
                     articleDiv.innerHTML = `
                         <div class="card">
-                            <img src="${imageUrl}" class="card-img-top" alt="Image article">
+                            ${imageUrl ? `<img src="${imageUrl}" class="card-img-top" alt="Image article">` : ""}
                             <div class="card-body">
                                 <h6 class="card-title"><a href="${item.link}" target="_blank">${item.title}</a></h6>
                                 <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
