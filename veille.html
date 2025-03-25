@@ -113,7 +113,7 @@
     const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle']; // Liste de mots-clés
 
     async function loadRSS(feed) {
-        const proxy = https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)};
+        const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
 
         try {
             const response = await fetch(proxy);
@@ -121,10 +121,10 @@
             const feedContainer = document.getElementById("rss-feeds");
 
             const feedSection = document.createElement("div");
-            feedSection.innerHTML = <h5>${feed.name}</h5><div class="row" id="feed-${feed.name.replace(/\s+/g, '-')}"></div>;
+            feedSection.innerHTML = `<h5>${feed.name}</h5><div class="row" id="feed-${feed.name.replace(/\s+/g, '-')}"></div>`;
             feedContainer.appendChild(feedSection);
 
-            const listContainer = document.getElementById(feed-${feed.name.replace(/\s+/g, '-')});
+            const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
             data.items.slice(0, 3).forEach(item => {
                 const title = item.title.toLowerCase();
                 const description = item.description ? item.description.toLowerCase() : '';
@@ -157,7 +157,7 @@
                         imageUrl = "https://www.inria.fr/sites/default/files/styles/logo-inria/public/2020-07/inria-logo-horizontal-2020-150x50.png"; // Logo INRIA
                     }
 
-                    articleDiv.innerHTML = 
+                    articleDiv.innerHTML = `
                         <div class="card">
                             <img src="${imageUrl}" class="card-img-top" alt="Image article">
                             <div class="card-body">
@@ -165,12 +165,12 @@
                                 <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
                             </div>
                         </div>
-                    ;
+                    `;
                     listContainer.appendChild(articleDiv);
                 }
             });
         } catch (error) {
-            console.error(Erreur lors du chargement du flux ${feed.name} :, error);
+            console.error(`Erreur lors du chargement du flux ${feed.name} :`, error);
         }
     }
 
