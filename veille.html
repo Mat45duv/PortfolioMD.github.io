@@ -99,83 +99,82 @@
             </div>
         </div>
         
-<div class="container my-5">
-    <h4>Dernières actualités sur le Machine Learning et l'IA</h4>
-    <div id="rss-feeds"></div>
-</div>
+async function loadRSS(feed) {
+    const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
 
-<script>
-    const rssFeeds = [
-        { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "TechCrunch", url: "https://techcrunch.com/feed/" }  // RSS Feed de TechCrunch ajouté
-    ];
+    try {
+        const response = await fetch(proxy);
+        const data = await response.json();
+        const feedContainer = document.getElementById("rss-feeds");
 
-    // Liste de mots-clés mise à jour
-    const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia'];
+        const feedSection = document.createElement("div");
+        feedSection.innerHTML = `<h5>${feed.name}</h5><div class="row" id="feed-${feed.name.replace(/\s+/g, '-')}"></div>`;
+        feedContainer.appendChild(feedSection);
 
-    async function loadRSS(feed) {
-        const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+        const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
+        
+        // Limite à 6 articles (si disponibles)
+        const articlesToDisplay = data.items.length >= 6 ? data.items.slice(0, 6) : data.items.slice(0, 5);
 
-        try {
-            const response = await fetch(proxy);
-            const data = await response.json();
-            const feedContainer = document.getElementById("rss-feeds");
+        articlesToDisplay.forEach(item => {
+            const title = item.title.toLowerCase();
+            const description = item.description ? item.description.toLowerCase() : '';
 
-            const feedSection = document.createElement("div");
-            feedSection.innerHTML = `<h5>${feed.name}</h5><div class="row" id="feed-${feed.name.replace(/\s+/g, '-')}"></div>`;
-            feedContainer.appendChild(feedSection);
+            // Vérifier si le titre ou la description contient des mots-clés
+            const containsKeyword = keywords.some(keyword => title.includes(keyword) || description.includes(keyword));
 
-            const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
-            
-            // Limite à 6 articles (si disponibles)
-            const articlesToDisplay = data.items.length >= 6 ? data.items.slice(0, 6) : data.items.slice(0, 5);
+            if (containsKeyword) {
+                const articleDiv = document.createElement("div");
+                articleDiv.classList.add("col-md-4", "mb-3");
 
-            articlesToDisplay.forEach(item => {
-                const title = item.title.toLowerCase();
-                const description = item.description ? item.description.toLowerCase() : '';
+                // Recherche des images dans le contenu de l'article
+                let imageUrl = "https://via.placeholder.com/150"; // Image par défaut
 
-                // Vérifier si le titre ou la description contient des mots-clés
-                const containsKeyword = keywords.some(keyword => title.includes(keyword) || description.includes(keyword));
-
-                if (containsKeyword) {
-                    const articleDiv = document.createElement("div");
-                    articleDiv.classList.add("col-md-4", "mb-3");
-
-                    // Recherche des images dans le contenu de l'article
-                    let imageUrl = "https://via.placeholder.com/150"; // Image par défaut
-
-                    // Vérification dans le flux RSS (balise enclosure)
-                    if (item.enclosure && item.enclosure.link) {
-                        imageUrl = item.enclosure.link;
-                    }
-                    // Recherche d'une image dans la description via une balise <img>
-                    else if (item.description) {
-                        const contentDoc = new DOMParser().parseFromString(item.description, 'text/html');
-                        const img = contentDoc.querySelector('img');
-                        if (img && img.src) {
-                            imageUrl = img.src;
-                        }
-                    }
-
-                    articleDiv.innerHTML = `
-                        <div class="card">
-                            <img src="${imageUrl}" class="card-img-top" alt="Image article">
-                            <div class="card-body">
-                                <h6 class="card-title"><a href="${item.link}" target="_blank">${item.title}</a></h6>
-                                <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
-                            </div>
-                        </div>
-                    `;
-                    listContainer.appendChild(articleDiv);
+                // Vérification dans le flux RSS (balise enclosure)
+                if (item.enclosure && item.enclosure.link) {
+                    imageUrl = item.enclosure.link;
                 }
-            });
-        } catch (error) {
-            console.error(`Erreur lors du chargement du flux ${feed.name} :`, error);
-        }
-    }
+                // Recherche d'une image dans la description via une balise <img>
+                else if (item.description) {
+                    const contentDoc = new DOMParser().parseFromString(item.description, 'text/html');
+                    const img = contentDoc.querySelector('img');
+                    if (img && img.src) {
+                        imageUrl = img.src;
+                    }
+                }
 
-    rssFeeds.forEach(feed => loadRSS(feed));
-</script>
+                // Vérification si une image n'a pas été trouvée, essayer une autre méthode (par exemple, regarder les métadonnées Open Graph)
+                if (imageUrl === "https://via.placeholder.com/150" && item.link) {
+                    try {
+                        const metaResponse = await fetch(item.link);
+                        const metaText = await metaResponse.text();
+                        const metaDoc = new DOMParser().parseFromString(metaText, 'text/html');
+                        const ogImage = metaDoc.querySelector('meta[property="og:image"]');
+                        if (ogImage && ogImage.content) {
+                            imageUrl = ogImage.content;
+                        }
+                    } catch (error) {
+                        console.error("Erreur lors de la récupération des métadonnées Open Graph pour l'image:", error);
+                    }
+                }
+
+                articleDiv.innerHTML = `
+                    <div class="card">
+                        <img src="${imageUrl}" class="card-img-top" alt="Image article">
+                        <div class="card-body">
+                            <h6 class="card-title"><a href="${item.link}" target="_blank">${item.title}</a></h6>
+                            <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
+                        </div>
+                    </div>
+                `;
+                listContainer.appendChild(articleDiv);
+            }
+        });
+    } catch (error) {
+        console.error(`Erreur lors du chargement du flux ${feed.name} :`, error);
+    }
+}
+
 
 
 
