@@ -152,21 +152,9 @@
                         }
                     }
 
-                    // Cas spécial pour le flux INRIA (si aucune image n'est trouvée, extraire l'image depuis la page de l'article)
+                    // Cas spécial pour le flux INRIA (si aucune image n'est trouvée, ajouter une image par défaut)
                     if (feed.name === "INRIA - IA & ML (FR)" && imageUrl === "https://via.placeholder.com/150") {
-                        // On récupère l'image depuis le site web de l'article en ajoutant une requête pour obtenir la page HTML
-                        const articlePageResponse = await fetch(item.link);
-                        const articlePageText = await articlePageResponse.text();
-                        const articlePageDoc = new DOMParser().parseFromString(articlePageText, 'text/html');
-                        
-                        // Recherche d'une image sur la page web
-                        const imgOnPage = articlePageDoc.querySelector('img');
-                        if (imgOnPage && imgOnPage.src) {
-                            imageUrl = imgOnPage.src;
-                        } else {
-                            // Si aucune image n'est trouvée, on utilise le logo d'INRIA comme fallback
-                            imageUrl = "https://www.inria.fr/sites/default/files/styles/logo-inria/public/2020-07/inria-logo-horizontal-2020-150x50.png";
-                        }
+                        imageUrl = "https://www.inria.fr/sites/default/files/styles/logo-inria/public/2020-07/inria-logo-horizontal-2020-150x50.png"; // Logo INRIA
                     }
 
                     articleDiv.innerHTML = `
@@ -188,6 +176,7 @@
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
+
 
 
 
