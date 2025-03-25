@@ -99,7 +99,7 @@
             </div>
         </div>
         
-        <div class="container my-5">
+       <div class="container my-5">
     <h4>Dernières actualités sur le Machine Learning</h4>
     <div id="rss-feeds"></div>
 </div>
@@ -107,8 +107,8 @@
 <script>
     const rssFeeds = [
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "Le Journal du Net - IA (FR)", url: "https://www.journaldunet.com/rss/ia.xml" },
-        { name: "INRIA - IA & ML (FR)", url: "https://www.inria.fr/rss.xml" }
+        { name: "INRIA - IA & ML (FR)", url: "https://www.inria.fr/rss.xml" },
+        { name: "Numerama - IA (FR)", url: "https://www.numerama.com/feed" }
     ];
 
     async function loadRSS(feed) {
@@ -128,7 +128,8 @@
                 const articleDiv = document.createElement("div");
                 articleDiv.classList.add("col-md-4", "mb-3");
 
-                const imageUrl = item.enclosure ? item.enclosure.link : "https://via.placeholder.com/150"; // Image par défaut si aucune image n'est fournie
+                // Si une image est présente dans le flux RSS, on l'affiche, sinon on met une image par défaut
+                const imageUrl = item.enclosure ? item.enclosure.link : (item.media && item.media.thumbnail ? item.media.thumbnail : "https://via.placeholder.com/150");
 
                 articleDiv.innerHTML = `
                     <div class="card">
