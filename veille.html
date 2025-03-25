@@ -107,7 +107,8 @@
 <script>
     const rssFeeds = [
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "INRIA - IA & ML (FR)", url: "https://www.inria.fr/rss.xml" },
+        { name: "AI News (FR)", url: "https://www.ainews.fr/feed/" }, // Nouveau flux ajouté
+        { name: "Machine Learning Mastery (EN)", url: "https://machinelearningmastery.com/feed/" } // Nouveau flux ajouté
     ];
 
     const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle']; // Liste de mots-clés
@@ -152,9 +153,9 @@
                         }
                     }
 
-                    // Cas spécial pour le flux INRIA (si aucune image n'est trouvée, ajouter une image par défaut)
-                    if (feed.name === "INRIA - IA & ML (FR)" && imageUrl === "https://via.placeholder.com/150") {
-                        imageUrl = "https://www.inria.fr/sites/default/files/styles/logo-inria/public/2020-07/inria-logo-horizontal-2020-150x50.png"; // Logo INRIA
+                    // Cas spécial pour le flux AI News (si aucune image n'est trouvée, ajouter une image par défaut)
+                    if (feed.name === "AI News (FR)" && imageUrl === "https://via.placeholder.com/150") {
+                        imageUrl = "https://www.ainews.fr/wp-content/uploads/2021/01/AI-News-logo.png"; // Logo AI News
                     }
 
                     articleDiv.innerHTML = `
