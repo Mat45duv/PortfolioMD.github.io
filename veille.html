@@ -152,6 +152,11 @@
                         }
                     }
 
+                    // Cas spécial pour le flux INRIA (si aucune image n'est trouvée, ajouter une image par défaut)
+                    if (feed.name === "INRIA - IA & ML (FR)" && imageUrl === "https://via.placeholder.com/150") {
+                        imageUrl = "https://www.inria.fr/sites/default/files/styles/logo-inria/public/2020-07/inria-logo-horizontal-2020-150x50.png"; // Logo INRIA
+                    }
+
                     articleDiv.innerHTML = `
                         <div class="card">
                             <img src="${imageUrl}" class="card-img-top" alt="Image article">
