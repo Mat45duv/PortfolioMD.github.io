@@ -98,6 +98,38 @@
                 <p><small>Publié le 8 février 2025</small></p>
             </div>
         </div>
+         <header class="text-center">
+        <h1>Veille Information - Machine Learning</h1>
+        <p>Restez à jour avec les dernières avancées et tendances dans le domaine du Machine Learning !</p>
+    </header>
+
+    <!-- Section Flux RSS -->
+    <div class="container my-5">
+        <h4>Flux RSS - Dernières Actualités en Machine Learning</h4>
+        <div id="rss-feed"></div>
+    </div>
+
+    <script>
+        async function fetchRSS() {
+            const rssUrl = 'https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml'; // Exemple de flux RSS
+            const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`);
+            const data = await response.json();
+            
+            let rssHtml = '';
+            data.items.slice(0, 5).forEach(item => {
+                rssHtml += `
+                    <div class="veille-rss-item">
+                        <h5><a href="${item.link}" target="_blank">${item.title}</a></h5>
+                        <p>${item.pubDate}</p>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+            });
+            document.getElementById('rss-feed').innerHTML = rssHtml;
+        }
+
+        fetchRSS();
+    </script>
 
         <!-- Vidéos sur le Machine Learning -->
         <div class="mb-5">
@@ -124,7 +156,7 @@
             </ul>
         </div>
     </div>
-
+    
     <!-- Footer -->
     <footer class="text-center mt-5">
         <p>&copy; 2025 Mathis DUVIVÉ - Tous droits réservés</p>
