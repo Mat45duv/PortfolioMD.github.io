@@ -107,7 +107,7 @@
 <script>
     const rssFeeds = [
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "Science et Avenir", url: "https://www.science-et-vie.com/rss/actualites" }, // Changement vers Science et Avenir RSS
+        { name: "Frandroid", url: "https://www.frandroid.com/feed" }, // Changé vers Frandroid RSS
     ];
 
     const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia']; // Liste de mots-clés mise à jour
@@ -152,9 +152,9 @@
                         }
                     }
 
-                    // Cas spécial pour le flux Science et Avenir (si aucune image n'est trouvée, ajouter une image par défaut)
-                    if (feed.name === "Science et Avenir" && imageUrl === "https://via.placeholder.com/150") {
-                        imageUrl = "https://www.science-et-vie.com/var/science_et_vie/storage/images/media/images/logos/logos-si-et-vie/11805105-1-fre-FR/logos-si-et-vie.jpg"; // Logo Science et Avenir
+                    // Cas spécial pour le flux Frandroid (si aucune image n'est trouvée, ajouter une image par défaut)
+                    if (feed.name === "Frandroid" && imageUrl === "https://via.placeholder.com/150") {
+                        imageUrl = "https://www.frandroid.com/images/logos/frandroid-logo.png"; // Logo Frandroid
                     }
 
                     articleDiv.innerHTML = `
