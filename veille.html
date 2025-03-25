@@ -128,8 +128,21 @@
                 const articleDiv = document.createElement("div");
                 articleDiv.classList.add("col-md-4", "mb-3");
 
-                // Si une image est présente dans le flux RSS, on l'affiche, sinon on met une image par défaut
-                const imageUrl = item.enclosure ? item.enclosure.link : (item.media && item.media.thumbnail ? item.media.thumbnail : "https://via.placeholder.com/150");
+                // Recherche des images dans le contenu de l'article
+                let imageUrl = "https://via.placeholder.com/150"; // Image par défaut
+
+                // Vérification dans le flux RSS (balise enclosure)
+                if (item.enclosure && item.enclosure.link) {
+                    imageUrl = item.enclosure.link;
+                } 
+                // Recherche d'une image dans le contenu de l'article via la balise <img> dans description ou contenu
+                else if (item.content) {
+                    const contentDoc = new DOMParser().parseFromString(item.content, 'text/html');
+                    const img = contentDoc.querySelector('img');
+                    if (img && img.src) {
+                        imageUrl = img.src;
+                    }
+                }
 
                 articleDiv.innerHTML = `
                     <div class="card">
@@ -149,6 +162,7 @@
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
+
 
         <!-- Vidéos sur le Machine Learning -->
         <div class="mb-5">
