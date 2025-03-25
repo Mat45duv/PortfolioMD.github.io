@@ -107,6 +107,7 @@
 <script>
     const rssFeeds = [
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
+        { name: "TechCrunch", url: "https://techcrunch.com/feed/" }  // RSS Feed de TechCrunch ajouté
     ];
 
     // Liste de mots-clés mise à jour
@@ -154,11 +155,6 @@
                         if (img && img.src) {
                             imageUrl = img.src;
                         }
-                    }
-
-                    // Cas spécial pour le flux Frandroid (si aucune image n'est trouvée, ajouter une image par défaut)
-                    if (feed.name === "Frandroid" && imageUrl === "https://via.placeholder.com/150") {
-                        imageUrl = "https://www.frandroid.com/images/logos/frandroid-logo.png"; // Logo Frandroid
                     }
 
                     articleDiv.innerHTML = `
