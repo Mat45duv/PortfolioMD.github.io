@@ -111,6 +111,9 @@
         { name: "Numerama - IA (FR)", url: "https://www.numerama.com/feed" }
     ];
 
+    // Filtrage sur le Machine Learning
+    const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle'];
+
     async function loadRSS(feed) {
         const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
 
@@ -125,35 +128,43 @@
 
             const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
             data.items.slice(0, 3).forEach(item => {
-                const articleDiv = document.createElement("div");
-                articleDiv.classList.add("col-md-4", "mb-3");
+                // Filtrage des articles contenant des mots-clés liés au Machine Learning
+                const titleLower = item.title.toLowerCase();
+                const descriptionLower = item.description.toLowerCase();
+                const contentLower = item.content ? item.content.toLowerCase() : '';
 
-                // Recherche des images dans le contenu de l'article
-                let imageUrl = "https://via.placeholder.com/150"; // Image par défaut
+                // Si l'article contient un des mots-clés de Machine Learning, on l'affiche
+                if (keywords.some(keyword => titleLower.includes(keyword) || descriptionLower.includes(keyword) || contentLower.includes(keyword))) {
+                    const articleDiv = document.createElement("div");
+                    articleDiv.classList.add("col-md-4", "mb-3");
 
-                // Vérification dans le flux RSS (balise enclosure)
-                if (item.enclosure && item.enclosure.link) {
-                    imageUrl = item.enclosure.link;
-                } 
-                // Recherche d'une image dans le contenu de l'article via la balise <img> dans description ou contenu
-                else if (item.content) {
-                    const contentDoc = new DOMParser().parseFromString(item.content, 'text/html');
-                    const img = contentDoc.querySelector('img');
-                    if (img && img.src) {
-                        imageUrl = img.src;
+                    // Recherche des images dans le contenu de l'article
+                    let imageUrl = "https://via.placeholder.com/150"; // Image par défaut
+
+                    // Vérification dans le flux RSS (balise enclosure)
+                    if (item.enclosure && item.enclosure.link) {
+                        imageUrl = item.enclosure.link;
+                    } 
+                    // Recherche d'une image dans le contenu de l'article via la balise <img> dans description ou contenu
+                    else if (item.content) {
+                        const contentDoc = new DOMParser().parseFromString(item.content, 'text/html');
+                        const img = contentDoc.querySelector('img');
+                        if (img && img.src) {
+                            imageUrl = img.src;
+                        }
                     }
-                }
 
-                articleDiv.innerHTML = `
-                    <div class="card">
-                        <img src="${imageUrl}" class="card-img-top" alt="Image article">
-                        <div class="card-body">
-                            <h6 class="card-title"><a href="${item.link}" target="_blank">${item.title}</a></h6>
-                            <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
+                    articleDiv.innerHTML = `
+                        <div class="card">
+                            <img src="${imageUrl}" class="card-img-top" alt="Image article">
+                            <div class="card-body">
+                                <h6 class="card-title"><a href="${item.link}" target="_blank">${item.title}</a></h6>
+                                <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
+                            </div>
                         </div>
-                    </div>
-                `;
-                listContainer.appendChild(articleDiv);
+                    `;
+                    listContainer.appendChild(articleDiv);
+                }
             });
         } catch (error) {
             console.error(`Erreur lors du chargement du flux ${feed.name} :`, error);
