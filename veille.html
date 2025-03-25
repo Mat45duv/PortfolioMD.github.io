@@ -98,47 +98,7 @@
                 <p><small>Publié le 8 février 2025</small></p>
             </div>
         </div>
-        <div class="container my-5">
-    <h4>Dernières actualités sur le Machine Learning</h4>
-    <div id="rss-feeds"></div>
-</div>
-
-<script>
-    const rssFeeds = [
-        { name: "KDnuggets", url: "https://www.kdnuggets.com/feed" },
-        { name: "Google AI Blog", url: "https://ai.googleblog.com/feeds/posts/default" },
-        { name: "ArXiv ML", url: "https://export.arxiv.org/rss/cs.LG" },
-        { name: "ML Mastery", url: "https://machinelearningmastery.com/feed/" },
-        { name: "Towards Data Science", url: "https://towardsdatascience.com/feed" },
-        { name: "TensorFlow Blog", url: "https://blog.tensorflow.org/feeds/posts/default" }
-    ];
-
-    async function loadRSS(feed) {
-        const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
-
-        try {
-            const response = await fetch(proxy);
-            const data = await response.json();
-            const feedContainer = document.getElementById("rss-feeds");
-
-            const feedSection = document.createElement("div");
-            feedSection.innerHTML = `<h5>${feed.name}</h5><ul id="feed-${feed.name.replace(/\s+/g, '-')}"></ul>`;
-            feedContainer.appendChild(feedSection);
-
-            const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
-            data.items.slice(0, 3).forEach(item => {
-                const listItem = document.createElement("li");
-                listItem.innerHTML = `<a href="${item.link}" target="_blank">${item.title}</a> - ${new Date(item.pubDate).toLocaleDateString()}`;
-                listContainer.appendChild(listItem);
-            });
-        } catch (error) {
-            console.error(`Erreur lors du chargement du flux ${feed.name} :`, error);
-        }
-    }
-
-    rssFeeds.forEach(feed => loadRSS(feed));
-</script>
-
+        
         <!-- Vidéos sur le Machine Learning -->
         <div class="mb-5">
             <h4>Vidéos sur le Machine Learning</h4>
