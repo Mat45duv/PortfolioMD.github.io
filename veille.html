@@ -98,58 +98,7 @@
                 <p><small>Publié le 8 février 2025</small></p>
             </div>
         </div>
-        <div class="container my-5">
-    <h4>📰 Dernières actualités sur le Machine Learning</h4>
-    <div id="rss-feeds"></div>
-</div>
-
-<script>
-    const rssFeeds = [
-        { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "Le Journal du Net - IA (FR)", url: "https://www.journaldunet.com/rss/ia.xml" },
-        { name: "INRIA - IA & ML (FR)", url: "https://www.inria.fr/rss.xml" },
-        { name: "KDnuggets (EN)", url: "https://www.kdnuggets.com/feed" },
-        { name: "Google AI Blog (EN)", url: "https://ai.googleblog.com/feeds/posts/default" },
-        { name: "TensorFlow Blog (EN)", url: "https://blog.tensorflow.org/feeds/posts/default" }
-    ];
-
-    async function loadRSS(feed) {
-        const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
-
-        try {
-            const response = await fetch(proxy);
-            const data = await response.json();
-            const feedContainer = document.getElementById("rss-feeds");
-
-            const feedSection = document.createElement("div");
-            feedSection.innerHTML = `<h5>🌍 ${feed.name}</h5><div class="row" id="feed-${feed.name.replace(/\s+/g, '-')}"></div>`;
-            feedContainer.appendChild(feedSection);
-
-            const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
-            data.items.slice(0, 3).forEach(item => {
-                const articleDiv = document.createElement("div");
-                articleDiv.classList.add("col-md-4", "mb-3");
-
-                const imageUrl = item.enclosure ? item.enclosure.link : "https://via.placeholder.com/150"; // Image par défaut si aucune image n'est fournie
-
-                articleDiv.innerHTML = `
-                    <div class="card">
-                        <img src="${imageUrl}" class="card-img-top" alt="Image article">
-                        <div class="card-body">
-                            <h6 class="card-title"><a href="${item.link}" target="_blank">${item.title}</a></h6>
-                            <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
-                        </div>
-                    </div>
-                `;
-                listContainer.appendChild(articleDiv);
-            });
-        } catch (error) {
-            console.error(`Erreur lors du chargement du flux ${feed.name} :`, error);
-        }
-    }
-
-    rssFeeds.forEach(feed => loadRSS(feed));
-</script>
+        
 
         <!-- Vidéos sur le Machine Learning -->
         <div class="mb-5">
