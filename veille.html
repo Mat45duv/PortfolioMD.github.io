@@ -107,7 +107,7 @@
 <script>
     const rssFeeds = [
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "MIT News AI & ML", url: "https://news.mit.edu/topic/machine-learning/feed" }, // Changed to MIT News AI & ML RSS
+        { name: "Le Monde Informatique", url: "https://www.lemondeinformatique.fr/rss/actualites" }, // Changé vers Le Monde Informatique RSS
     ];
 
     const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle', 'ia']; // Liste de mots-clés mise à jour
@@ -152,9 +152,9 @@
                         }
                     }
 
-                    // Cas spécial pour le flux MIT News AI & ML (si aucune image n'est trouvée, ajouter une image par défaut)
-                    if (feed.name === "MIT News AI & ML" && imageUrl === "https://via.placeholder.com/150") {
-                        imageUrl = "https://news.mit.edu/sites/default/files/styles/mit_news_article_image/public/2021/AI_hero.jpg"; // MIT AI image
+                    // Cas spécial pour le flux Le Monde Informatique (si aucune image n'est trouvée, ajouter une image par défaut)
+                    if (feed.name === "Le Monde Informatique" && imageUrl === "https://via.placeholder.com/150") {
+                        imageUrl = "https://www.lemondeinformatique.fr/images/logo_lmi.jpg"; // Logo Le Monde Informatique
                     }
 
                     articleDiv.innerHTML = `
@@ -176,6 +176,7 @@
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
+
 
 
 
