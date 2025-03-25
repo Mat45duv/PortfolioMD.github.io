@@ -107,14 +107,13 @@
 <script>
     const rssFeeds = [
         { name: "ActuIA (FR)", url: "https://www.actuia.com/feed/" },
-        { name: "AI News (FR)", url: "https://www.ainews.fr/feed/" }, // Nouveau flux ajouté
-        { name: "Machine Learning Mastery (EN)", url: "https://machinelearningmastery.com/feed/" } // Nouveau flux ajouté
+        { name: "INRIA - IA & ML (FR)", url: "https://www.inria.fr/rss.xml" },
     ];
 
     const keywords = ['machine learning', 'apprentissage automatique', 'deep learning', 'intelligence artificielle']; // Liste de mots-clés
 
     async function loadRSS(feed) {
-        const proxy = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}`;
+        const proxy = https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)};
 
         try {
             const response = await fetch(proxy);
@@ -122,10 +121,10 @@
             const feedContainer = document.getElementById("rss-feeds");
 
             const feedSection = document.createElement("div");
-            feedSection.innerHTML = `<h5>${feed.name}</h5><div class="row" id="feed-${feed.name.replace(/\s+/g, '-')}"></div>`;
+            feedSection.innerHTML = <h5>${feed.name}</h5><div class="row" id="feed-${feed.name.replace(/\s+/g, '-')}"></div>;
             feedContainer.appendChild(feedSection);
 
-            const listContainer = document.getElementById(`feed-${feed.name.replace(/\s+/g, '-')}`);
+            const listContainer = document.getElementById(feed-${feed.name.replace(/\s+/g, '-')});
             data.items.slice(0, 3).forEach(item => {
                 const title = item.title.toLowerCase();
                 const description = item.description ? item.description.toLowerCase() : '';
@@ -153,12 +152,12 @@
                         }
                     }
 
-                    // Cas spécial pour le flux AI News (si aucune image n'est trouvée, ajouter une image par défaut)
-                    if (feed.name === "AI News (FR)" && imageUrl === "https://via.placeholder.com/150") {
-                        imageUrl = "https://www.ainews.fr/wp-content/uploads/2021/01/AI-News-logo.png"; // Logo AI News
+                    // Cas spécial pour le flux INRIA (si aucune image n'est trouvée, ajouter une image par défaut)
+                    if (feed.name === "INRIA - IA & ML (FR)" && imageUrl === "https://via.placeholder.com/150") {
+                        imageUrl = "https://www.inria.fr/sites/default/files/styles/logo-inria/public/2020-07/inria-logo-horizontal-2020-150x50.png"; // Logo INRIA
                     }
 
-                    articleDiv.innerHTML = `
+                    articleDiv.innerHTML = 
                         <div class="card">
                             <img src="${imageUrl}" class="card-img-top" alt="Image article">
                             <div class="card-body">
@@ -166,18 +165,17 @@
                                 <p class="card-text"><small>${new Date(item.pubDate).toLocaleDateString()}</small></p>
                             </div>
                         </div>
-                    `;
+                    ;
                     listContainer.appendChild(articleDiv);
                 }
             });
         } catch (error) {
-            console.error(`Erreur lors du chargement du flux ${feed.name} :`, error);
+            console.error(Erreur lors du chargement du flux ${feed.name} :, error);
         }
     }
 
     rssFeeds.forEach(feed => loadRSS(feed));
 </script>
-
 
 
 
