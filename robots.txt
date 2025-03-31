@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mat45duv.github.io/sitemap.xml
