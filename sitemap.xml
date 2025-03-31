@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://mat45duv.github.io/PortfolioMD.github.io/</loc>
+        <lastmod>2025-03-31</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mat45duv.github.io/PortfolioMD.github.io/cv</loc>
+        <lastmod>2025-03-31</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mat45duv.github.io/PortfolioMD.github.io/competences</loc>
+        <lastmod>2025-03-31</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mat45duv.github.io/PortfolioMD.github.io/projets</loc>
+        <lastmod>2025-03-31</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://mat45duv.github.io/PortfolioMD.github.io/veille</loc>
+        <lastmod>2025-03-31</lastmod>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://mat45duv.github.io/PortfolioMD.github.io/contact</loc>
+        <lastmod>2025-03-31</lastmod>
+        <priority>0.6</priority>
+    </url>
+</urlset>
