@@ -1,5 +1,0 @@
-# robots.txt pour https://mat45duv.github.io/PortfolioMD.github.io/
-
-# Autoriser tous les robots à explorer tout le site
-User-agent: *
-Disallow: 
